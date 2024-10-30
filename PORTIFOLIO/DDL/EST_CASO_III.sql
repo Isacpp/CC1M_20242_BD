@@ -1,4 +1,7 @@
 CREATE SCHEMA EC3_CC1M;
+
+USE EC3_CC1M;
+
 -- Criação do banco de dados
 CREATE DATABASE IF NOT EXISTS TechSolutionDB;
 USE TechSolutionDB;
