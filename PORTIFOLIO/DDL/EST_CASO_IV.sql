@@ -1,7 +1,7 @@
 CREATE SCHEMA EC4_CC1M;
 -- Alunos
 CREATE TABLE IF NOT EXISTS Alunos (
-    aluno_id INT PRIMARY KEY AUTO_INCREMENT,
+    aluno_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
     data_nascimento DATE NOT NULL,
@@ -14,7 +14,7 @@ ALTER TABLE Alunos DROP TESTE TEXT;
 
 -- Instrutores
 CREATE TABLE IF NOT EXISTS Instrutores (
-    instrutor_id INT PRIMARY KEY AUTO_INCREMENT,
+    instrutor_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
     data_contratacao DATE NOT NULL,
@@ -23,21 +23,21 @@ CREATE TABLE IF NOT EXISTS Instrutores (
 
 -- Modalidades
 CREATE TABLE IF NOT EXISTS Modalidades (
-    modalidade_id INT PRIMARY KEY AUTO_INCREMENT,
+    modalidade_id INT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     descricao TEXT
 );
 
 -- Aulas
 CREATE TABLE IF NOT EXISTS Aulas (
-    aula_id INT PRIMARY KEY AUTO_INCREMENT,
+    aula_id INT PRIMARY KEY,
     horario TIME NOT NULL,
     capacidade INT NOT NULL
 );
 
 -- Pagamentos
 CREATE TABLE IF NOT EXISTS Pagamentos (
-    pagamento_id INT PRIMARY KEY AUTO_INCREMENT,
+    pagamento_id INT PRIMARY KEY,
     aluno_id INT,
     data_pagamento DATE,
     valor DECIMAL(10, 2),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Pagamentos (
 );
 -- Planos de Treinamento
 CREATE TABLE IF NOT EXISTS PlanosTreinamento (
-    plano_id INT PRIMARY KEY AUTO_INCREMENT,
+    plano_id INT PRIMARY KEY,
     aluno_id INT NOT NULL,
     instrutor_id INT NOT NULL,
     descricao TEXT,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS PlanosTreinamento (
 );
 -- Relacionamento entre Aluno e Modalidade (Matriculas)
 CREATE TABLE IF NOT EXISTS Matriculas (
-    matricula_id INT PRIMARY KEY AUTO_INCREMENT,
+    matricula_id INT PRIMARY KEY,
     aluno_id INT NOT NULL,
     modalidade_id INT NOT NULL,
     data_matricula DATE,
