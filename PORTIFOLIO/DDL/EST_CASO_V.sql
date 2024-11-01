@@ -1,4 +1,4 @@
-CREATE SCHEMA 
+CREATE SCHEMA EC5_CC1M;
 
 -- Clientes
 CREATE TABLE Clientes (
