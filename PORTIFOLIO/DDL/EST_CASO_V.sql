@@ -53,3 +53,16 @@ CREATE TABLE Pagamentos (
 ALTER TABLE Pagamentos ADD TESTE TEXT;
 ALTER TABLE Pagamentos DROP TESTE;
 
+-- Vendas
+CREATE TABLE Vendas (
+    venda_id INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_id INT NOT NULL,
+    data_venda DATE NOT NULL,
+    forma_pagamento ENUM('Dinheiro', 'Cartão', 'Pix', 'Boleto'),
+    CONSTRAINT fk_venda_cliente FOREIGN KEY (cliente_id) REFERENCES Clientes(cliente_id)
+);
+
+ALTER TABLE Vendas ADD TESTE TEXT;
+ALTER TABLE Vendas DROP TESTE;
+
+
