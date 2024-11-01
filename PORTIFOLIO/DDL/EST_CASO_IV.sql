@@ -119,3 +119,5 @@ ALTER TABLE AulaModalidade DROP TESTE;
 
 -- Relacionamento entre Pagamentos e Alunos
 ALTER TABLE Pagamentos ADD CONSTRAINT fk_pagamento_aluno FOREIGN KEY (aluno_id) REFERENCES Alunos(aluno_id);
+
+DROP SCHEMA EC4_CC1M;
