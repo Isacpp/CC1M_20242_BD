@@ -16,6 +16,9 @@ CREATE TABLE Clientes (
     fidelidade ENUM('Sim', 'Não') DEFAULT 'Não'
 );
 
+ALTER TABLE Clientes ADD TESTE TEXT;
+ALTER TABLE Clientes DROP TESTE;
+
 -- Produtos
 CREATE TABLE Produtos (
     produto_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,6 +28,9 @@ CREATE TABLE Produtos (
     quantidade_estoque INT NOT NULL
 );
 
+ALTER TABLE Produtos ADD TESTE TEXT;
+ALTER TABLE Produtos DROP TESTE;
+
 -- Fornecedores
 CREATE TABLE Fornecedores (
     fornecedor_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,6 +39,9 @@ CREATE TABLE Fornecedores (
     telefone VARCHAR(15)
 );
 
+ALTER TABLE Fornecedores ADD TESTE TEXT;
+ALTER TABLE Fornecedores DROP TESTE;
+
 -- Pagamentos
 CREATE TABLE Pagamentos (
     pagamento_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -40,4 +49,7 @@ CREATE TABLE Pagamentos (
     data_pagamento DATE NOT NULL,
     status ENUM('Pago', 'Pendente') NOT NULL
 );
+
+ALTER TABLE Pagamentos ADD TESTE TEXT;
+ALTER TABLE Pagamentos DROP TESTE;
 
