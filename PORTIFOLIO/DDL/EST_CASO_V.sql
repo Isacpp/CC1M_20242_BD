@@ -97,3 +97,5 @@ ADD CONSTRAINT fk_pagamento_venda FOREIGN KEY (venda_id) REFERENCES Vendas(venda
 
 ALTER TABLE Pagamentos ADD TESTE TEXT;
 ALTER TABLE Pagamentos DROP TESTE;
+
+DROP SCHEMA EC5_CC1M;
