@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Alunos (
 );
 
 ALTER TABLE Alunos ADD TESTE TEXTE;
-ALTER TABLE Alunos DROP TESTE TEXT;
+ALTER TABLE Alunos DROP TESTE;
 
 -- Instrutores
 CREATE TABLE IF NOT EXISTS Instrutores (
@@ -24,6 +24,10 @@ CREATE TABLE IF NOT EXISTS Instrutores (
     especialidade VARCHAR(100)
 );
 
+ALTER TABLE Instrutores ADD TESTE TEXTE;
+ALTER TABLE Instrutores DROP TESTE;
+
+
 -- Modalidades
 CREATE TABLE IF NOT EXISTS Modalidades (
     modalidade_id INT PRIMARY KEY,
@@ -31,12 +35,18 @@ CREATE TABLE IF NOT EXISTS Modalidades (
     descricao TEXT
 );
 
+ALTER TABLE Modalidades ADD TESTE TEXTE;
+ALTER TABLE Modalidades DROP TESTE;
+
 -- Aulas
 CREATE TABLE IF NOT EXISTS Aulas (
     aula_id INT PRIMARY KEY,
     horario TIME NOT NULL,
     capacidade INT NOT NULL
 );
+
+ALTER TABLE Aulas ADD TESTE TEXTE;
+ALTER TABLE Aulas DROP TESTE;
 
 -- Pagamentos
 CREATE TABLE IF NOT EXISTS Pagamentos (
@@ -46,6 +56,10 @@ CREATE TABLE IF NOT EXISTS Pagamentos (
     valor DECIMAL(10, 2),
     status ENUM('Pago', 'Pendente') NOT NULL
 );
+
+ALTER TABLE Pagamentos ADD TESTE TEXTE;
+ALTER TABLE Pagamentos DROP TESTE;
+
 -- Planos de Treinamento
 CREATE TABLE IF NOT EXISTS PlanosTreinamento (
     plano_id INT PRIMARY KEY,
@@ -57,6 +71,10 @@ CREATE TABLE IF NOT EXISTS PlanosTreinamento (
     CONSTRAINT fk_planotreinamento_aluno FOREIGN KEY (aluno_id) REFERENCES Alunos(aluno_id),
     CONSTRAINT fk_planotreinamento_instrutor FOREIGN KEY (instrutor_id) REFERENCES Instrutores(instrutor_id)
 );
+
+ALTER TABLE PlanosTreinamento ADD TESTE TEXTE;
+ALTER TABLE PlanosTreinamento DROP TESTE;
+
 -- Relacionamento entre Aluno e Modalidade (Matriculas)
 CREATE TABLE IF NOT EXISTS Matriculas (
     matricula_id INT PRIMARY KEY,
@@ -67,6 +85,9 @@ CREATE TABLE IF NOT EXISTS Matriculas (
     CONSTRAINT fk_matricula_modalidade FOREIGN KEY (modalidade_id) REFERENCES Modalidades(modalidade_id)
 );
 
+ALTER TABLE Matriculas ADD TESTE TEXTE;
+ALTER TABLE Matriculas DROP TESTE;
+
 -- Relacionamento entre Instrutor e Modalidade
 CREATE TABLE IF NOT EXISTS InstrutorModalidade (
     instrutor_id INT NOT NULL,
@@ -75,6 +96,9 @@ CREATE TABLE IF NOT EXISTS InstrutorModalidade (
     CONSTRAINT fk_instrutormodalidade_instrutor FOREIGN KEY (instrutor_id) REFERENCES Instrutores(instrutor_id),
     CONSTRAINT fk_instrutormodalidade_modalidade FOREIGN KEY (modalidade_id) REFERENCES Modalidades(modalidade_id)
 );
+
+ALTER TABLE InstrutorModalidade ADD TESTE TEXTE;
+ALTER TABLE InstrutorModalidade DROP TESTE;
 
 -- Relacionamento entre Aulas e Modalidades
 CREATE TABLE IF NOT EXISTS AulaModalidade (
@@ -86,6 +110,9 @@ CREATE TABLE IF NOT EXISTS AulaModalidade (
     CONSTRAINT fk_aulamodalidade_modalidade FOREIGN KEY (modalidade_id) REFERENCES Modalidades(modalidade_id),
     CONSTRAINT fk_aulamodalidade_instrutor FOREIGN KEY (instrutor_id) REFERENCES Instrutores(instrutor_id)
 );
+
+ALTER TABLE AulaModalidade ADD TESTE TEXTE;
+ALTER TABLE AulaModalidade DROP TESTE;
 
 -- Relacionamento entre Pagamentos e Alunos
 ALTER TABLE Pagamentos ADD CONSTRAINT fk_pagamento_aluno FOREIGN KEY (aluno_id) REFERENCES Alunos(aluno_id);
