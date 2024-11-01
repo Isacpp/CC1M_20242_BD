@@ -65,4 +65,35 @@ CREATE TABLE Vendas (
 ALTER TABLE Vendas ADD TESTE TEXT;
 ALTER TABLE Vendas DROP TESTE;
 
+-- Relacionamento entre Produtos e Fornecedores (Produtos Fornecidos)
+CREATE TABLE ProdutosFornecidos (
+    produto_id INT NOT NULL,
+    fornecedor_id INT NOT NULL,
+    PRIMARY KEY (produto_id, fornecedor_id),
+    CONSTRAINT fk_produtofornecido_produto FOREIGN KEY (produto_id) REFERENCES Produtos(produto_id),
+    CONSTRAINT fk_produtofornecido_fornecedor FOREIGN KEY (fornecedor_id) REFERENCES Fornecedores(fornecedor_id)
+);
 
+ALTER TABLE ProdutosFornecidos ADD TESTE TEXT;
+ALTER TABLE ProdutosFornecidos DROP TESTE;
+
+-- Relacionamento entre Vendas e Produtos (Produtos Vendidos)
+CREATE TABLE ProdutosVendidos (
+    venda_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (venda_id, produto_id),
+    CONSTRAINT fk_produtovendido_venda FOREIGN KEY (venda_id) REFERENCES Vendas(venda_id),
+    CONSTRAINT fk_produtovendido_produto FOREIGN KEY (produto_id) REFERENCES Produtos(produto_id)
+);
+
+ALTER TABLE ProdutosVendidos ADD TESTE TEXT;
+ALTER TABLE ProdutosVendidos DROP TESTE;
+
+-- Relacionamento entre Pagamentos e Vendas
+ALTER TABLE Pagamentos
+ADD venda_id INT NOT NULL,
+ADD CONSTRAINT fk_pagamento_venda FOREIGN KEY (venda_id) REFERENCES Vendas(venda_id);
+
+ALTER TABLE Pagamentos ADD TESTE TEXT;
+ALTER TABLE Pagamentos DROP TESTE;
