@@ -20,11 +20,25 @@ CREATE TABLE IF NOT EXISTS CLIENTES (
 ALTER TABLE CLIENTES ADD COLUMN TESTE TEXT;
 ALTER TABLE CLIENTES DROP COLUMN TESTE;
 
+-- Inserindo 5 novos registros na tabela CLIENTES
 INSERT INTO CLIENTES (Codigo, CNPJ, RazaoSocial, RamoDeAtividade, DataDeCadastramento, PessoaDeContato)
 VALUES 
-(1, '12.345.678/0001-99', 'Tech Solutions LTDA', 'Tecnologia da Informação', '2024-01-15', 'João Silva'),
-(2, '23.456.789/0001-88', 'Innovate Tech', 'Desenvolvimento de Software', '2023-12-10', 'Maria Oliveira'),
-(3, '34.567.890/0001-77', 'NextGen Solutions', 'Consultoria Empresarial', '2024-02-20', 'Carlos Souza');
+(4, '45.678.901/0001-55', 'Global Tech', 'Consultoria em TI', '2024-03-01', 'Ricardo Torres'),
+(5, '56.789.012/0001-66', 'Future Enterprises', 'Engenharia de Software', '2024-04-01', 'Ana Pereira'),
+(6, '67.890.123/0001-77', 'Tech Innovators', 'Desenvolvimento de Apps', '2024-05-10', 'Luiz Barbosa'),
+(7, '78.901.234/0001-88', 'Innovative Systems', 'Inteligência Artificial', '2024-06-12', 'Pedro Santos'),
+(8, '89.012.345/0001-99', 'Creative Solutions', 'Design de Software', '2024-07-15', 'Camila Costa');
+
+
+UPDATE CLIENTES
+SET RazaoSocial = 'Tech Solutions Internacional', RamoDeAtividade = 'Consultoria Global'
+WHERE Codigo = 1;
+
+UPDATE CLIENTES
+SET PessoaDeContato = 'Mário Oliveira'
+WHERE CNPJ = '23.456.789/0001-88';
+
+DELETE FROM CLIENTES WHERE Codigo = 4;
 
 -- EMPREGADOS
 CREATE TABLE IF NOT EXISTS EMPREGADOS (
@@ -42,9 +56,21 @@ ALTER TABLE EMPREGADOS DROP COLUMN TESTE;
 
 INSERT INTO EMPREGADOS (Matricula, Nome, Cargo, Salario, DataDeAdmissao, Endereco, Qualificacoes)
 VALUES 
-(1, 'Ana Costa', 'Desenvolvedora', 4500.00, '2023-06-01', 'Rua A, 123, São Paulo', 'Bacharel em Ciência da Computação'),
-(2, 'Lucas Almeida', 'Analista de Sistemas', 4000.00, '2023-08-15', 'Avenida B, 456, Rio de Janeiro', 'Mestrado em Engenharia de Software'),
-(3, 'Juliana Lima', 'Gerente de Projetos', 8000.00, '2022-09-10', 'Rua C, 789, Belo Horizonte', 'MBA em Gestão de TI');
+(4, 'Carlos Pereira', 'Desenvolvedor Front-end', 3800.00, '2024-02-05', 'Rua D, 101, São Paulo', 'Técnico em Desenvolvimento de Sistemas'),
+(5, 'Juliana Oliveira', 'Analista de Suporte', 3500.00, '2024-03-15', 'Avenida X, 200, Rio de Janeiro', 'Técnico em Redes de Computadores'),
+(6, 'Renato Silva', 'Administrador de Banco de Dados', 6000.00, '2024-04-01', 'Rua Y, 150, Belo Horizonte', 'Bacharel em Sistemas de Informação'),
+(7, 'Patricia Costa', 'Gerente de TI', 10000.00, '2024-05-10', 'Rua Z, 50, Porto Alegre', 'MBA em Gestão de TI'),
+(8, 'Fábio Souza', 'Especialista em Segurança de TI', 7000.00, '2024-06-12', 'Rua W, 35, Recife', 'Certificação em Segurança da Informação');
+
+UPDATE EMPREGADOS
+SET Cargo = 'DBA Senior', Salario = 7500.00
+WHERE Matricula = 6;
+
+UPDATE EMPREGADOS
+SET Salario = 8000.00
+WHERE Matricula = 8;
+
+DELETE FROM EMPREGADOS WHERE Matricula = 4;
 
 -- EMPRESAS
 CREATE TABLE IF NOT EXISTS EMPRESAS (
@@ -59,9 +85,21 @@ ALTER TABLE EMPRESAS DROP COLUMN TESTE;
 
 INSERT INTO EMPRESAS (CNPJ, RazaoSocial, Endereco, PessoaDeContato)
 VALUES 
-('12.345.678/0001-99', 'Tech Solutions LTDA', 'Rua das Empresas, 101, São Paulo', 'João Silva'),
-('23.456.789/0001-88', 'Innovate Tech', 'Avenida Paulista, 456, São Paulo', 'Maria Oliveira'),
-('34.567.890/0001-77', 'NextGen Solutions', 'Rua B, 123, Rio de Janeiro', 'Carlos Souza');
+('45.678.901/0001-11', 'Global Systems', 'Rua E, 101, São Paulo', 'Marcelo Andrade'),
+('56.789.012/0001-22', 'Tech Innovations', 'Avenida F, 200, Rio de Janeiro', 'Roberta Martins'),
+('67.890.123/0001-33', 'Creative Enterprises', 'Rua G, 150, Belo Horizonte', 'Juliano Costa'),
+('78.901.234/0001-44', 'Innovative Works', 'Rua H, 200, Porto Alegre', 'Carla Almeida'),
+('89.012.345/0001-55', 'Future Technologies', 'Avenida I, 50, Curitiba', 'Robson Souza');
+
+UPDATE EMPRESAS
+SET Endereco = 'Avenida B, 250, São Paulo', PessoaDeContato = 'Lucas Silva'
+WHERE CNPJ = '23.456.789/0001-88';
+
+UPDATE EMPRESAS
+SET RazaoSocial = 'Tech Solutions Global', Endereco = 'Rua das Tecnologias, 300, São Paulo'
+WHERE CNPJ = '12.345.678/0001-99';
+
+DELETE FROM EMPRESAS WHERE CNPJ = '34.567.890/0001-77';
 
 -- FORNECEDORES
 CREATE TABLE IF NOT EXISTS FORNECEDORES (
@@ -76,9 +114,22 @@ ALTER TABLE FORNECEDORES DROP COLUMN TESTE;
 
 INSERT INTO FORNECEDORES (CNPJ, RazaoSocial, Endereco, PessoaDeContato)
 VALUES 
-('12.345.678/0001-99', 'Fornecedor A', 'Rua dos Fornecedores, 101, São Paulo', 'Ricardo Lima'),
-('23.456.789/0001-88', 'Fornecedor B', 'Avenida Central, 202, Rio de Janeiro', 'Fernanda Costa'),
-('34.567.890/0001-77', 'Fornecedor C', 'Rua Principal, 303, Belo Horizonte', 'Juliano Pereira');
+('12.345.678/0001-33', 'Supplier A', 'Rua I, 101, São Paulo', 'Ricardo Oliveira'),
+('23.456.789/0001-44', 'Supplier B', 'Avenida J, 200, Rio de Janeiro', 'Fernanda Lima'),
+('34.567.890/0001-55', 'Supplier C', 'Rua K, 150, Belo Horizonte', 'Gustavo Souza'),
+('45.678.901/0001-66', 'Supplier D', 'Rua L, 250, Porto Alegre', 'Mônica Silva'),
+('56.789.012/0001-77', 'Supplier E', 'Rua M, 300, Curitiba', 'Rafael Almeida');
+
+
+UPDATE FORNECEDORES
+SET PessoaDeContato = 'Ricardo Lima', Endereco = 'Rua das Indústrias, 400, São Paulo'
+WHERE CNPJ = '12.345.678/0001-99';
+
+UPDATE FORNECEDORES
+SET Endereco = 'Avenida Nova, 300, Rio de Janeiro'
+WHERE CNPJ = '23.456.789/0001-88';
+
+DELETE FROM FORNECEDORES WHERE CNPJ = '34.567.890/0001-77';
 
 -- TIPO DE ENDEREÇO
 CREATE TABLE IF NOT EXISTS TIPO_DE_ENDERECO (
@@ -113,9 +164,21 @@ ALTER TABLE PRODUTOS DROP COLUMN TESTE;
 
 INSERT INTO PRODUTOS (Codigo, Nome, Cor, Dimensoes, Peso, Preco, TempoDeFabricacao, DesenhoProduto, HorasDeMaoDeObra)
 VALUES 
-(1, 'Produto A', 'Azul', '30x20x10', 1.5, 100.00, 5.00, 'Desenho A', 2.5),
-(2, 'Produto B', 'Vermelho', '40x30x15', 2.0, 150.00, 8.00, 'Desenho B', 3.0),
-(3, 'Produto C', 'Verde', '50x40x20', 2.5, 200.00, 10.00, 'Desenho C', 4.0);
+(4, 'Produto D', 'Preto', '60x50x30', 3.0, 250.00, 12.00, 'Desenho D', 5.0),
+(5, 'Produto E', 'Branco', '70x60x40', 3.5, 300.00, 15.00, 'Desenho E', 6.0),
+(6, 'Produto F', 'Cinza', '80x70x50', 4.0, 350.00, 18.00, 'Desenho F', 7.0),
+(7, 'Produto G', 'Azul Claro', '90x80x60', 4.5, 400.00, 20.00, 'Desenho G', 8.0),
+(8, 'Produto H', 'Vermelho Claro', '100x90x70', 5.0, 450.00, 25.00, 'Desenho H', 9.0);
+
+UPDATE PRODUTOS
+SET Preco = 110.00, Dimensoes = '35x25x15'
+WHERE Codigo = 1;
+
+UPDATE PRODUTOS
+SET Cor = 'Rosa', Preco = 180.00
+WHERE Codigo = 2;
+
+DELETE FROM PRODUTOS WHERE Codigo = 4;
 
 -- TIPOS DE COMPONENTE
 CREATE TABLE IF NOT EXISTS TIPOS_DE_COMPONENTE (
