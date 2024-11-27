@@ -53,7 +53,7 @@ CREATE TABLE Feedbacks (
     FOREIGN KEY (colaborador_id) REFERENCES Colaboradores(id_colaborador)
 );
 
--- Exemplo de tabela para projetos (opcional, caso precise monitorar projetos específicos)
+-- Exemplo de tabela para projetos
 CREATE TABLE Projetos (
     id_projeto INT AUTO_INCREMENT PRIMARY KEY,
     nome_projeto VARCHAR(255) NOT NULL,
