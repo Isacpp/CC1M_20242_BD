@@ -62,7 +62,7 @@ CREATE TABLE Projetos (
     data_fim DATE
 );
 
--- Tabela de associação entre empresas e projetos (opcional)
+-- Tabela de associação entre empresas e projetos
 CREATE TABLE Empresas_Projetos (
     empresa_id INT NOT NULL,
     projeto_id INT NOT NULL,
